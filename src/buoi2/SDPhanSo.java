@@ -27,11 +27,14 @@ public class SDPhanSo {
     PhanSo x = new PhanSo();
     PhanSo y = new PhanSo();
 
+    System.out.println("Nhap x!");
     x.nhap();
+    System.out.println("Nhap y!");
     y.nhap();
 
     PhanSo nx = x.giaTriNghichDao();
 
+    System.out.print("Nghich dao x: ");
     nx.hienThi();
 
     System.out.print("x + y = ");
@@ -42,6 +45,7 @@ public class SDPhanSo {
 
     System.out.print("So luong phan tu: ");
     do {
+      System.out.print("a");
       String input = sc.nextLine();
 
       try {

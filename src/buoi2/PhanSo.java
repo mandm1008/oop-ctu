@@ -23,7 +23,8 @@ public class PhanSo {
     try {
       return Integer.parseInt(input);
     } catch (Exception e) {
-      return scanInt(sc, "Thu lai!\n" + mgs);
+      System.out.println("Thu lai!");
+      return scanInt(sc, mgs);
     }
   }
 
@@ -50,12 +51,7 @@ public class PhanSo {
       return;
     }
 
-    if (tu == 0) {
-      System.out.println(0);
-      return;
-    }
-
-    if (mau == 1) {
+    if (tu == 0 || mau == 1) {
       System.out.println(tu);
       return;
     }
@@ -81,7 +77,7 @@ public class PhanSo {
     return (float) tu / mau;
   }
 
-  private int chuanHoaTu(int t, int m) {
+  private int chuanHoaDau(int t, int m) {
     if (t * m < 0)
       return -Math.abs(t);
 
@@ -94,10 +90,10 @@ public class PhanSo {
     int tu2 = p.tu;
     int mau2 = p.mau;
 
-    tu1 = chuanHoaTu(tu1, mau1);
+    tu1 = chuanHoaDau(tu1, mau1);
     mau1 = Math.abs(mau1);
 
-    tu2 = chuanHoaTu(tu2, mau2);
+    tu2 = chuanHoaDau(tu2, mau2);
     mau2 = Math.abs(mau2);
 
     if (tu1 * mau2 > tu2 * mau1)
@@ -107,9 +103,7 @@ public class PhanSo {
   }
 
   public PhanSo cong(PhanSo p) {
-    return new PhanSo(
-        chuanHoaTu(tu, mau) * Math.abs(p.mau) + chuanHoaTu(p.tu, p.mau) * Math.abs(mau),
-        Math.abs(mau * p.mau));
+    return new PhanSo(tu * p.mau + mau * p.tu, mau * p.mau);
   }
 
   public PhanSo cong(int n) {
@@ -117,9 +111,7 @@ public class PhanSo {
   }
 
   public PhanSo tru(PhanSo p) {
-    return new PhanSo(
-        chuanHoaTu(tu, mau) * Math.abs(p.mau) - chuanHoaTu(p.tu, p.mau) * Math.abs(mau),
-        Math.abs(mau * p.mau));
+    return new PhanSo(tu * p.mau - mau * p.tu, mau * p.mau);
   }
 
   public PhanSo tru(int n) {

@@ -4,29 +4,29 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Date {
-  int day;
-  int mouth;
-  int year;
+  private int d;
+  private int m;
+  private int y;
 
   public Date() {
     LocalDateTime time = LocalDateTime.now();
-    day = time.getDayOfMonth();
-    mouth = time.getMonthValue();
-    year = time.getYear();
+    d = time.getDayOfMonth();
+    m = time.getMonthValue();
+    y = time.getYear();
   }
 
   public Date(int d, int m, int y) {
-    day = d;
-    mouth = m;
-    year = y;
+    this.d = d;
+    this.m = m;
+    this.y = y;
   }
 
   public void print() {
-    System.out.println(day + "/" + mouth + "/" + year);
+    System.out.println(d + "/" + m + "/" + y);
   }
 
   public void printDay() {
-    System.out.println("Day: " + day);
+    System.out.println("Day: " + d);
   }
 
   private static int getValidDay(int m, int y) {
@@ -75,7 +75,7 @@ public class Date {
   }
 
   public boolean isValid() {
-    return isValid(day, mouth, year);
+    return isValid(d, m, y);
   }
 
   private int scanInt(Scanner scanner) {
@@ -101,9 +101,9 @@ public class Date {
     nYear = scanInt(scanner);
 
     if (Date.isValid(nDay, nMouth, nYear)) {
-      day = nDay;
-      mouth = nMouth;
-      year = nYear;
+      d = nDay;
+      m = nMouth;
+      y = nYear;
     } else {
       System.out.println("Date is not valid! Please try again!");
       scan();
@@ -111,37 +111,29 @@ public class Date {
   }
 
   public Date nextDay() {
-    return addDay(1);
-  }
+    Date next = new Date(d, m, y);
 
-  public Date addDay(int n) {
-    int d = day + n;
-    int m = mouth;
-    int y = year;
+    next.d++;
+    if (!next.isValid()) {
+      next.d -= getValidDay(next.m, next.y);
+      next.m++;
 
-    if (y < 0)
-      y = -y;
-
-    if (m < 0)
-      m = -m;
-
-    while (!Date.isValid(d, m, y)) {
-
-      if (m > 12) {
-        y += m / 12;
-        m %= 12;
-      }
-
-      int validDay = getValidDay(m, y);
-
-      if (d < 0)
-        d = -d;
-      if (d > validDay) {
-        m++;
-        d -= validDay;
+      if (!next.isValid()) {
+        next.m -= 12;
+        next.y++;
       }
     }
 
-    return new Date(d, m, y);
+    return next;
+  }
+
+  public Date addDay(int n) {
+    Date add = new Date(d, m, y);
+
+    for (int i = 0; i < n; i++) {
+      add = add.nextDay();
+    }
+
+    return add;
   }
 }
