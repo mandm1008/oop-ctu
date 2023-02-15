@@ -45,7 +45,6 @@ public class SDPhanSo {
 
     System.out.print("So luong phan tu: ");
     do {
-      System.out.print("a");
       String input = sc.nextLine();
 
       try {
