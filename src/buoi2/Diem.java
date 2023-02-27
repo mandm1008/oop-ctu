@@ -16,6 +16,11 @@ public class Diem {
     this.y = y;
   }
 
+  public Diem(Diem d) {
+    this.x = d.x;
+    this.y = d.y;
+  }
+
   private int nhap(Scanner scanner, String mgs) {
     System.out.print(mgs);
     String input = scanner.nextLine();
