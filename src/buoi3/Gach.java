@@ -14,13 +14,13 @@ public class Gach {
     nhap();
   }
 
-  public Gach(String i, String m, int sL, int cD, int cN, long g) {
-    id = i;
-    mau = m;
-    soLuong = sL;
-    dai = cD;
-    ngang = cN;
-    gia = g;
+  public Gach(String id, String mau, int soLuong, int dai, int ngang, long gia) {
+    this.id = id;
+    this.mau = mau;
+    this.soLuong = soLuong;
+    this.dai = dai;
+    this.ngang = ngang;
+    this.gia = gia;
   }
 
   private long getLong(Scanner sc, String mgs) {

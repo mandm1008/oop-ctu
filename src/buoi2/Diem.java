@@ -21,6 +21,10 @@ public class Diem {
     this.y = d.y;
   }
 
+  public String toString() {
+    return "(" + x + ", " + y + ")";
+  }
+
   private int nhap(Scanner scanner, String mgs) {
     System.out.print(mgs);
     String input = scanner.nextLine();

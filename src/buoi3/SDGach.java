@@ -2,7 +2,7 @@ package buoi3;
 
 import java.util.Scanner;
 
-public class SDGach {
+class SDGach {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     Gach loaiGach[];

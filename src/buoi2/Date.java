@@ -21,8 +21,18 @@ public class Date {
     this.y = y;
   }
 
+  public Date(Date da) {
+    d = da.d;
+    m = da.m;
+    y = da.y;
+  }
+
   public void print() {
     System.out.println(d + "/" + m + "/" + y);
+  }
+
+  public String toString() {
+    return d + "/" + m + "/" + y;
   }
 
   public void printDay() {
