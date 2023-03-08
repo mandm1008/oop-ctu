@@ -32,9 +32,8 @@ public class Diem {
     try {
       return Integer.parseInt(input);
     } catch (Exception e) {
-      return mgs.indexOf("Vui long nhap 1 so nguyen!") == -1
-          ? nhap(scanner, "Vui long nhap 1 so nguyen!\n" + mgs)
-          : nhap(scanner, mgs);
+      System.out.println("Vui long nhap 1 so nguyen!");
+      return nhap(scanner, mgs);
     }
   }
 

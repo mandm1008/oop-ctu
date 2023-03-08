@@ -9,8 +9,8 @@ public class SinhVien {
   private String hoTen;
   private Date ngaySinh;
   private int soLuongHP;
-  private LinkedList tenHP;
-  private LinkedList diemHP;
+  private LinkedList<String> tenHP;
+  private LinkedList<String> diemHP;
   private static String tenDiemChuan[] = { "A", "B+", "B", "C+", "C", "D+", "D", "F" };
   private static float diemChuan[] = { 4.0f, 3.5f, 3.0f, 2.5f, 2.0f, 1.5f, 1.0f, 0.0f };
 
@@ -59,17 +59,19 @@ public class SinhVien {
 
   public void nhapDiem(Scanner sc) {
     for (int i = 0; i < soLuongHP; i++) {
-      System.out.print("Nhap diem mon " + tenHP.get(i) + ": ");
-      diemHP.set(i, sc.nextLine());
+      String t = diemHP.get(i);
+      System.out.print("Nhap diem mon " + tenHP.get(i) + ": (" + t + ") ");
+      String input = sc.nextLine();
+      diemHP.set(i, !input.equals("") ? input : t);
     }
   }
 
   public String toString() {
-    return mssv + "\t" + hoTen + "\t" + ngaySinh;
+    return mssv + "\t" + hoTen + "\t" + ngaySinh + "\t" + soLuongHP + "\t" + diemTB();
   }
 
-  public String layHoTen() {
-    return hoTen;
+  public String layTen() {
+    return hoTen.substring(hoTen.lastIndexOf(" "));
   }
 
   public void themHP(String ten) {

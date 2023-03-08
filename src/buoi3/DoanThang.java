@@ -28,35 +28,13 @@ public class DoanThang {
     d1 = new Diem(dt.d2);
   }
 
-  private Diem nhapDiem(Scanner sc) {
-    int x = 0;
-    int y = 0;
-    boolean pass = true;
-
-    do {
-      if (!pass)
-        System.out.print("Nhap sai! Vui long nhap lai (x y): ");
-
-      String input = sc.nextLine();
-      String arr[] = input.trim().split(" ");
-      pass = true;
-
-      try {
-        x = Integer.parseInt(arr[0]);
-        y = Integer.parseInt(arr[1]);
-      } catch (NumberFormatException e) {
-        pass = false;
-      }
-    } while (!pass);
-
-    return new Diem(x, y);
-  }
-
   public void nhap(Scanner sc) {
     System.out.print("Nhap diem dau (x y): ");
-    d1 = nhapDiem(sc);
+    d1 = new Diem();
+    d1.nhapDiem();
     System.out.print("Nhap diem cuoi (x y): ");
-    d2 = nhapDiem(sc);
+    d2 = new Diem();
+    d2.nhapDiem();
   }
 
   public String toString() {
