@@ -43,7 +43,7 @@ public class DiemMau extends Diem {
 
   @Override
   public String toString() {
-    return this + " " + mau;
+    return super.toString() + " " + mau;
   }
 
   public void hienThi() {

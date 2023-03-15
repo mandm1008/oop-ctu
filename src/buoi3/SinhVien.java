@@ -74,6 +74,10 @@ public class SinhVien {
     return hoTen.substring(hoTen.lastIndexOf(" "));
   }
 
+  public String layMSSV() {
+    return new String(mssv);
+  }
+
   public void themHP(String ten) {
     tenHP.add(ten);
     diemHP.add("F");
