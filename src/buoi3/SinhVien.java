@@ -71,7 +71,7 @@ public class SinhVien {
   }
 
   public String layTen() {
-    return hoTen.substring(hoTen.lastIndexOf(" "));
+    return hoTen.substring(hoTen.lastIndexOf(" ") + 1);
   }
 
   public String layMSSV() {

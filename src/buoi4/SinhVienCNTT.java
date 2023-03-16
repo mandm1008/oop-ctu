@@ -19,9 +19,9 @@ public class SinhVienCNTT extends SinhVien {
 
   public SinhVienCNTT(SinhVien s, String taikhoan, String matkhau, String email) {
     super(s);
-    this.taikhoan = new String(s.layMSSV());
-    this.matkhau = matkhau;
-    this.email = email;
+    this.taikhoan = new String(s.layMSSV().toLowerCase());
+    this.matkhau = new String(matkhau);
+    this.email = taoEmail();
   }
 
   public SinhVienCNTT(SinhVienCNTT s) {
@@ -31,13 +31,29 @@ public class SinhVienCNTT extends SinhVien {
     email = new String(s.email);
   }
 
+  private String taoEmail() {
+    return layTen().toLowerCase() + taikhoan + "@student.ctu.edu.vn";
+  }
+
   @Override
   public void nhap(Scanner sc) {
     super.nhap(sc);
-
-    System.out.print("Nhap tai khoan: ");
-    taikhoan = sc.nextLine();
+    taikhoan = layMSSV().toLowerCase();
+    email = taoEmail();
     System.out.print("Nhap mat khau: ");
     matkhau = sc.nextLine();
+  }
+
+  @Override
+  public String toString() {
+    return super.toString() + " " + taikhoan + " " + matkhau + " " + email;
+  }
+
+  public void doiMatKhau(String newpass) {
+    this.matkhau = new String(newpass);
+  }
+
+  public String getEmail() {
+    return this.email;
   }
 }
