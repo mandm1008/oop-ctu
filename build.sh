@@ -1,1 +1,1 @@
-javac -d ./bin/ -s ./src/ ./src/*.java ./src/buoi1/*.java ./src/buoi2/*.java ./src/buoi3/*.java ./src/buoi4/*.java
+javac -d ./bin/ -s ./src/ ./src/*.java ./src/buoi1/*.java ./src/buoi2/*.java ./src/buoi3/*.java ./src/buoi4/*.java ./src/buoi5/*.java
